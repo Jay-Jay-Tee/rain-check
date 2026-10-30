@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>rain-check: do I need an umbrella?</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <h1>Do I need an umbrella?</h1>
+  <p class="sub">Type a city. We'll check the chance of rain for the next 12 hours.</p>
+
+  <form id="search">
+    <input id="city" name="city" type="text" placeholder="e.g. Singapore" autocomplete="off" required>
+    <button type="submit">Check</button>
+  </form>
+  <button id="demo" class="link" type="button">Try it with Singapore</button>
+
+  <section id="result" hidden>
+    <p id="place" class="place"></p>
+    <p id="answer" class="answer"></p>
+    <p id="detail" class="detail"></p>
+    <div id="hours" class="hours" aria-label="Chance of rain by hour"></div>
+    <p id="note" class="note" hidden></p>
+  </section>
+
+  <p id="status" class="status" role="status"></p>
+</main>
+
+<footer>
+  Weather data from <a href="https://open-meteo.com/">Open-Meteo</a>.
+  Example project for <a href="https://jay-jay-tee.github.io/hackpack/">hackpack</a>.
+</footer>
+
+<script src="demo-data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
