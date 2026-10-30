@@ -1,0 +1,4 @@
+# This site is a reference example, linked from hackpack. Keep it out of
+# search results so it stays link-only.
+User-agent: *
+Disallow: /
