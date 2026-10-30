@@ -86,6 +86,7 @@ async function check(name) {
     }
     const hours = await getForecast(city.lat, city.lon);
     show(`${city.name}, ${city.country}`, hours, false);
+    localStorage.setItem("lastCity", name);
     statusEl.textContent = "";
   } catch (err) {
     // Never let the demo die: fall back to saved data.
@@ -105,9 +106,9 @@ document.getElementById("demo").addEventListener("click", () => {
   check("Singapore");
 });
 
-// Allow links like ?city=London
-const fromUrl = new URLSearchParams(location.search).get("city");
-if (fromUrl) {
-  input.value = fromUrl;
-  check(fromUrl);
+// Start with ?city=London from the URL if given, otherwise the last city checked.
+const startCity = new URLSearchParams(location.search).get("city") || localStorage.getItem("lastCity");
+if (startCity) {
+  input.value = startCity;
+  check(startCity);
 }
